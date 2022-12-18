@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		48A7B115294FCC1900778970 /* UberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A7B114294FCC1900778970 /* UberApp.swift */; };
-		48A7B117294FCC1900778970 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A7B116294FCC1900778970 /* ContentView.swift */; };
 		48A7B119294FCC1A00778970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A7B118294FCC1A00778970 /* Assets.xcassets */; };
 		48A7B11D294FCC1A00778970 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A7B11C294FCC1A00778970 /* Preview Assets.xcassets */; };
+		48A7B12C294FCC9300778970 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A7B12B294FCC9300778970 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		48A7B111294FCC1900778970 /* Uber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A7B114294FCC1900778970 /* UberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberApp.swift; sourceTree = "<group>"; };
-		48A7B116294FCC1900778970 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		48A7B118294FCC1A00778970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48A7B11A294FCC1A00778970 /* Uber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Uber.entitlements; sourceTree = "<group>"; };
 		48A7B11C294FCC1A00778970 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		48A7B12B294FCC9300778970 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +36,11 @@
 		48A7B108294FCC1900778970 = {
 			isa = PBXGroup;
 			children = (
+				48A7B128294FCC5900778970 /* Extensions */,
+				48A7B127294FCC5400778970 /* Managers */,
+				48A7B125294FCC3A00778970 /* Core */,
+				48A7B124294FCC3500778970 /* Models */,
+				48A7B123294FCC2D00778970 /* App */,
 				48A7B113294FCC1900778970 /* Uber */,
 				48A7B112294FCC1900778970 /* Products */,
 			);
@@ -52,8 +57,6 @@
 		48A7B113294FCC1900778970 /* Uber */ = {
 			isa = PBXGroup;
 			children = (
-				48A7B114294FCC1900778970 /* UberApp.swift */,
-				48A7B116294FCC1900778970 /* ContentView.swift */,
 				48A7B118294FCC1A00778970 /* Assets.xcassets */,
 				48A7B11A294FCC1A00778970 /* Uber.entitlements */,
 				48A7B11B294FCC1A00778970 /* Preview Content */,
@@ -67,6 +70,59 @@
 				48A7B11C294FCC1A00778970 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		48A7B123294FCC2D00778970 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				48A7B114294FCC1900778970 /* UberApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		48A7B124294FCC3500778970 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		48A7B125294FCC3A00778970 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				48A7B12A294FCC8300778970 /* Views */,
+				48A7B129294FCC7D00778970 /* ViewModel */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		48A7B127294FCC5400778970 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		48A7B128294FCC5900778970 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		48A7B129294FCC7D00778970 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		48A7B12A294FCC8300778970 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				48A7B12B294FCC9300778970 /* HomeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48A7B117294FCC1900778970 /* ContentView.swift in Sources */,
+				48A7B12C294FCC9300778970 /* HomeView.swift in Sources */,
 				48A7B115294FCC1900778970 /* UberApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +325,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Uber;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -287,10 +345,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tahaafzal.Uber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,6 +367,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Uber;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -325,10 +387,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tahaafzal.Uber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
