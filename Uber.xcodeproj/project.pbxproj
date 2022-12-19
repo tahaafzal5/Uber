@@ -11,6 +11,8 @@
 		48A7B119294FCC1A00778970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A7B118294FCC1A00778970 /* Assets.xcassets */; };
 		48A7B11D294FCC1A00778970 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A7B11C294FCC1A00778970 /* Preview Assets.xcassets */; };
 		48A7B12C294FCC9300778970 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A7B12B294FCC9300778970 /* HomeView.swift */; };
+		48E5A00B294FE71F0030C861 /* MapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E5A00A294FE71F0030C861 /* MapViewRepresentable.swift */; };
+		48E5A00D294FE8C50030C861 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E5A00C294FE8C50030C861 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,9 @@
 		48A7B11A294FCC1A00778970 /* Uber.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Uber.entitlements; sourceTree = "<group>"; };
 		48A7B11C294FCC1A00778970 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		48A7B12B294FCC9300778970 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		48E5A00A294FE71F0030C861 /* MapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRepresentable.swift; sourceTree = "<group>"; };
+		48E5A00C294FE8C50030C861 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Core/Views/LocationManager.swift; sourceTree = SOURCE_ROOT; };
+		48E5A00E294FE9640030C861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +62,7 @@
 		48A7B113294FCC1900778970 /* Uber */ = {
 			isa = PBXGroup;
 			children = (
+				48E5A00E294FE9640030C861 /* Info.plist */,
 				48A7B118294FCC1A00778970 /* Assets.xcassets */,
 				48A7B11A294FCC1A00778970 /* Uber.entitlements */,
 				48A7B11B294FCC1A00778970 /* Preview Content */,
@@ -99,6 +105,7 @@
 		48A7B127294FCC5400778970 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				48E5A00C294FE8C50030C861 /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				48A7B12B294FCC9300778970 /* HomeView.swift */,
+				48E5A00A294FE71F0030C861 /* MapViewRepresentable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,7 +203,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48E5A00D294FE8C50030C861 /* LocationManager.swift in Sources */,
 				48A7B12C294FCC9300778970 /* HomeView.swift in Sources */,
+				48E5A00B294FE71F0030C861 /* MapViewRepresentable.swift in Sources */,
 				48A7B115294FCC1900778970 /* UberApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,8 +335,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Uber/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Uber;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location so we can find you with the nearest drivers.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -367,8 +379,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Uber/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Uber;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location so we can find you with the nearest drivers.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
