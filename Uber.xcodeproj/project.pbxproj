@@ -23,7 +23,7 @@
 		48A7B11C294FCC1A00778970 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		48A7B12B294FCC9300778970 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		48E5A00A294FE71F0030C861 /* MapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRepresentable.swift; sourceTree = "<group>"; };
-		48E5A00C294FE8C50030C861 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Core/Views/LocationManager.swift; sourceTree = SOURCE_ROOT; };
+		48E5A00C294FE8C50030C861 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Managers/LocationManager.swift; sourceTree = SOURCE_ROOT; };
 		48E5A00E294FE9640030C861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -38,6 +38,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		480787FA2954C87900D073AF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				48A7B12A294FCC8300778970 /* Views */,
+				48A7B129294FCC7D00778970 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		480787FB2954C89700D073AF /* LocationSearch */ = {
+			isa = PBXGroup;
+			children = (
+				480787FD2954C8A500D073AF /* ViewModels */,
+				480787FC2954C89E00D073AF /* View */,
+			);
+			path = LocationSearch;
+			sourceTree = "<group>";
+		};
+		480787FC2954C89E00D073AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		480787FD2954C8A500D073AF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		48A7B108294FCC1900778970 = {
 			isa = PBXGroup;
 			children = (
@@ -96,8 +128,8 @@
 		48A7B125294FCC3A00778970 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				48A7B12A294FCC8300778970 /* Views */,
-				48A7B129294FCC7D00778970 /* ViewModel */,
+				480787FB2954C89700D073AF /* LocationSearch */,
+				480787FA2954C87900D073AF /* Home */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -121,7 +153,8 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = ViewModel;
+			name = ViewModel;
+			path = ../ViewModel;
 			sourceTree = "<group>";
 		};
 		48A7B12A294FCC8300778970 /* Views */ = {
