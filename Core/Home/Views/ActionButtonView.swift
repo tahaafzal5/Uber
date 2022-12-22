@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ActionButtonView: View {
+	
+	@Binding var isBackArrow: Bool
+	
     var body: some View {
 		Button {
-			
+			withAnimation(.spring()) {
+				isBackArrow.toggle()
+			}
 		} label: {
-			Image(systemName: "line.3.horizontal")
+			Image(systemName: isBackArrow ? "arrow.left" : "line.3.horizontal")
 				.foregroundColor(.black)
 				.font(.title2)
 				.padding()
@@ -26,6 +31,6 @@ struct ActionButtonView: View {
 
 struct ActionButtonView_Previews: PreviewProvider {
     static var previews: some View {
-		ActionButtonView()
+		ActionButtonView(isBackArrow: .constant(false))
     }
 }

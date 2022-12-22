@@ -60,6 +60,7 @@ struct LocationSearchView: View {
 			}
 		}
 		.padding(.horizontal)
+		.background(.white)
 	}
 }
 

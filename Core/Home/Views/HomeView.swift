@@ -8,15 +8,30 @@
 import SwiftUI
 
 struct HomeView: View {
+	
+	@State private var showLocationSearchView = false
+	
     var body: some View {
 		ZStack(alignment: .top) {
 			MapViewRepresentable()
 				.ignoresSafeArea()
-			
-			LocationSearchActivationView()
-				.padding(.top, 60)
-			
-			ActionButtonView()
+		
+			if (showLocationSearchView)
+			{
+				LocationSearchView()
+			}
+			else
+			{
+				LocationSearchActivationView()
+					.padding(.top, 60)
+					.onTapGesture {
+						withAnimation(.spring()) {
+							showLocationSearchView.toggle()
+						}
+					}
+			}
+	
+			ActionButtonView(isBackArrow: $showLocationSearchView)
 				.padding(.leading, 20)
 		}
     }
