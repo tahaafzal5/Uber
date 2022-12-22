@@ -12,8 +12,12 @@ struct HomeView: View {
 		ZStack(alignment: .top) {
 			MapViewRepresentable()
 				.ignoresSafeArea()
+			
 			LocationSearchActivationView()
-				.padding(.top, 50)
+				.padding(.top, 60)
+			
+			ActionButtonView()
+				.padding(.leading, 20)
 		}
     }
 }
