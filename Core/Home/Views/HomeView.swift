@@ -9,8 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        MapViewRepresentable()
-			.ignoresSafeArea()
+		ZStack(alignment: .top) {
+			MapViewRepresentable()
+				.ignoresSafeArea()
+			LocationSearchActivationView()
+				.padding(.top, 50)
+		}
     }
 }
 
