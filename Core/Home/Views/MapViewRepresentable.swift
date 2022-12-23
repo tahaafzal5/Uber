@@ -14,6 +14,8 @@ struct MapViewRepresentable: UIViewRepresentable {
 	
 	@EnvironmentObject var locationViewModel: LocationSearchViewModel
 	
+	@Binding var mapState: MapViewState
+	
 	let mapView = MKMapView()
 	let locationManager = LocationManager()
 	
@@ -30,9 +32,20 @@ struct MapViewRepresentable: UIViewRepresentable {
 	}
 	
 	func updateUIView(_ uiView: UIViewType, context: Context) {
-		if let selectedLocationCoordinates = locationViewModel.selectedLocationCoordinates {
-			context.coordinator.addAndSelectAnnotation(withCoordinate: selectedLocationCoordinates)
-			context.coordinator.configurePolylines(withDestinationCoordinate: selectedLocationCoordinates)
+		print("Map state is \(mapState)")
+		
+		switch mapState {
+			case .NO_INPUT:
+				context.coordinator.resetMapView()
+				break
+			case .SEARCHING_FOR_LOCATION:
+				break
+			case .LOCATION_SELECTED:
+				if let selectedLocationCoordinates = locationViewModel.selectedLocationCoordinates {
+					context.coordinator.addAndSelectAnnotation(withCoordinate: selectedLocationCoordinates)
+					context.coordinator.configurePolylines(withDestinationCoordinate: selectedLocationCoordinates)
+				}
+				break
 		}
 	}
 	
@@ -50,7 +63,9 @@ extension MapViewRepresentable {
 		// MARK: Properties
 		
 		let parent: MapViewRepresentable
+		
 		var userLocationCoordinate: CLLocationCoordinate2D?
+		var currentRegion: MKCoordinateRegion?
 		
 		// MARK: Constructors
 		
@@ -69,11 +84,10 @@ extension MapViewRepresentable {
 				span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
 			
 			parent.mapView.setRegion(region, animated: true)
+			self.currentRegion = region
 		}
 		
 		func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-			parent.mapView.removeOverlays(parent.mapView.overlays)
-			
 			let polylineOverlay = MKPolylineRenderer(overlay: overlay)
 			
 			polylineOverlay.strokeColor = .systemBlue
@@ -122,6 +136,16 @@ extension MapViewRepresentable {
 				guard let route = response?.routes.first else { return }
 				
 				completion(route)
+			}
+		}
+		
+		func resetMapView() {
+			print("resetMapView()")
+			parent.mapView.removeAnnotations(parent.mapView.annotations)
+			parent.mapView.removeOverlays(parent.mapView.overlays)
+			
+			if let currentRegion = currentRegion {
+				parent.mapView.setRegion(currentRegion, animated: true)
 			}
 		}
 	}

@@ -12,7 +12,7 @@ struct HomeView: View {
 	
     var body: some View {
 		ZStack(alignment: .top) {
-			MapViewRepresentable()
+			MapViewRepresentable(mapState: $mapState)
 				.ignoresSafeArea()
 		
 			if mapState == .SEARCHING_FOR_LOCATION

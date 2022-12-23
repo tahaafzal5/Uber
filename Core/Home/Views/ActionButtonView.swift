@@ -31,10 +31,13 @@ struct ActionButtonView: View {
 		switch state {
 			case .NO_INPUT:
 				print("DEBUG: .NO_INPUT")
+				break
 			case .SEARCHING_FOR_LOCATION:
 				mapState = .NO_INPUT
+				break
 			case .LOCATION_SELECTED:
-				print("DEBUG: Clear map view")
+				mapState = .NO_INPUT
+				break
 		}
 	}
 	
