@@ -9,10 +9,15 @@ import SwiftUI
 import MapKit
 
 struct MapViewRepresentable: UIViewRepresentable {
+	
+	// MARK: Properties
+	
 	@EnvironmentObject var locationViewModel: LocationSearchViewModel
 	
 	let mapView = MKMapView()
 	let locationManager = LocationManager()
+	
+	// MARK: Functions
 	
 	func makeUIView(context: Context) -> some UIView {
 		mapView.delegate = context.coordinator
@@ -36,6 +41,8 @@ struct MapViewRepresentable: UIViewRepresentable {
 	}
 }
 
+// MARK: Extensions
+
 extension MapViewRepresentable {
 	
 	class MapCoordinator: NSObject, MKMapViewDelegate {
@@ -45,7 +52,7 @@ extension MapViewRepresentable {
 		let parent: MapViewRepresentable
 		var userLocationCoordinate: CLLocationCoordinate2D?
 		
-		// MARK: Constructor
+		// MARK: Constructors
 		
 		init(parent: MapViewRepresentable) {
 			self.parent = parent
