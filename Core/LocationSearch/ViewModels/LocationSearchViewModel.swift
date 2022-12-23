@@ -10,6 +10,7 @@ import MapKit
 
 class LocationSearchViewModel: NSObject, ObservableObject {
 	@Published var results = [MKLocalSearchCompletion]()
+	@Published var selectedLocationCoordinates: CLLocationCoordinate2D?
 
 	private let searchCompleter = MKLocalSearchCompleter()
 	
@@ -23,6 +24,28 @@ class LocationSearchViewModel: NSObject, ObservableObject {
 		super.init()
 		searchCompleter.delegate = self
 		searchCompleter.queryFragment = queryFragment
+	}
+	
+	func selectLocation(localSearchCompletion: MKLocalSearchCompletion) {
+		locationSearch(forLocationSearchCompletion: localSearchCompletion) { response, error in
+			
+			if let error = error {
+				print("Location search failed. Error: \(error.localizedDescription)")
+				return
+			}
+			
+			guard let item = response?.mapItems.first else { return }
+			let coordinate = item.placemark.coordinate
+			self.selectedLocationCoordinates = coordinate
+		}
+	}
+	
+	func locationSearch(forLocationSearchCompletion localSearchCompletion: MKLocalSearchCompletion, completionHandler: @escaping MKLocalSearch.CompletionHandler) {
+		let searchRequest = MKLocalSearch.Request()
+		searchRequest.naturalLanguageQuery = localSearchCompletion.title.appending(localSearchCompletion.subtitle)
+		
+		let search = MKLocalSearch(request: searchRequest)
+		search.start(completionHandler: completionHandler)
 	}
 }
 
