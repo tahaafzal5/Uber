@@ -25,6 +25,7 @@ struct ActionButtonView: View {
 				.shadow(radius: 5)
 		}
 		.frame(maxWidth: .infinity, alignment: .leading)
+		.disabled(mapState == .NO_INPUT ? true : false)
 	}
 	
 	func actionForState(state: MapViewState) {
