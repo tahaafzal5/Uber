@@ -26,7 +26,7 @@ struct MapViewRepresentable: UIViewRepresentable {
 	
 	func updateUIView(_ uiView: UIViewType, context: Context) {
 		if let selectedLocationCoordinates = locationViewModel.selectedLocationCoordinates {
-			print(selectedLocationCoordinates)
+			context.coordinator.addAndSelectAnnotation(withCoordinate: selectedLocationCoordinates)
 		}
 	}
 	
@@ -51,6 +51,18 @@ extension MapViewRepresentable {
 				span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
 			
 			parent.mapView.setRegion(region, animated: true)
+		}
+		
+		func addAndSelectAnnotation(withCoordinate coordinate: CLLocationCoordinate2D) {
+			parent.mapView.removeAnnotations(parent.mapView.annotations)
+			
+			let annotation = MKPointAnnotation()
+			
+			annotation.coordinate = coordinate
+			parent.mapView.addAnnotation(annotation)
+			parent.mapView.selectAnnotation(annotation, animated: true)
+			
+			parent.mapView.showAnnotations(parent.mapView.annotations, animated: true)
 		}
 	}
 }
