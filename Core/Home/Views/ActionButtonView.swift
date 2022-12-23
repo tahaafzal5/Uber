@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ActionButtonView: View {
-	
 	@Binding var isBackArrow: Bool
 	
     var body: some View {

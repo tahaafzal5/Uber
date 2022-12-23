@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LocationSearchView: View {
-	
 	@State private var startLocation = ""
 	@StateObject var locationSearchViewModel = LocationSearchViewModel()
 	
@@ -53,7 +52,7 @@ struct LocationSearchView: View {
 			// List
 			ScrollView {
 				VStack(alignment: .leading) {
-					ForEach(locationSearchViewModel.results, id: \.self) {result in
+					ForEach(locationSearchViewModel.results, id: \.self) { result in
 						LocationSearchResultCell(title: result.title, subtitle: result.subtitle)
 					}
 				}
