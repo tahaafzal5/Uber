@@ -9,7 +9,12 @@ import CoreLocation
 import SwiftUI
 
 class LocationManager: NSObject, ObservableObject {
+	
+	// MARK: Properties
+	
 	private let locationManager = CLLocationManager()
+	
+	// MARK: Constructors
 	
 	override init() {
 		super.init()
@@ -21,6 +26,8 @@ class LocationManager: NSObject, ObservableObject {
 		locationManager.startUpdatingLocation()
 	}
 }
+
+// MARK: Extensions
 
 extension LocationManager: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

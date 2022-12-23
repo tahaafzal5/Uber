@@ -9,6 +9,9 @@ import Foundation
 import MapKit
 
 class LocationSearchViewModel: NSObject, ObservableObject {
+	
+	// MARK: Properties
+	
 	@Published var results = [MKLocalSearchCompletion]()
 	@Published var selectedLocationCoordinates: CLLocationCoordinate2D?
 
@@ -20,11 +23,15 @@ class LocationSearchViewModel: NSObject, ObservableObject {
 		}
 	}
 	
+	// MARK: Constructors
+	
 	override init() {
 		super.init()
 		searchCompleter.delegate = self
 		searchCompleter.queryFragment = queryFragment
 	}
+	
+	// MARK: Functions
 	
 	func selectLocation(localSearchCompletion: MKLocalSearchCompletion) {
 		locationSearch(forLocationSearchCompletion: localSearchCompletion) { response, error in
@@ -49,7 +56,12 @@ class LocationSearchViewModel: NSObject, ObservableObject {
 	}
 }
 
+// MARK: Extensions
+
 extension LocationSearchViewModel: MKLocalSearchCompleterDelegate {
+	
+	// MARK: MKLocalSearchCompleterDelegate
+	
 	func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
 		self.results = completer.results
 	}
