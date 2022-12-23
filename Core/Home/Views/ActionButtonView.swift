@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ActionButtonView: View {
-	@Binding var isBackArrow: Bool
+	@Binding var mapState: MapViewState
 	
     var body: some View {
 		Button {
 			withAnimation(.spring()) {
-				isBackArrow.toggle()
+				actionForState(state: mapState)
 			}
 		} label: {
-			Image(systemName: isBackArrow ? "arrow.left" : "line.3.horizontal")
+			Image(systemName: imageNameForState(state: mapState))
 				.foregroundColor(.black)
 				.font(.title2)
 				.padding()
@@ -26,10 +26,30 @@ struct ActionButtonView: View {
 		}
 		.frame(maxWidth: .infinity, alignment: .leading)
 	}
+	
+	func actionForState(state: MapViewState) {
+		switch state {
+			case .NO_INPUT:
+				print("DEBUG: .NO_INPUT")
+			case .SEARCHING_FOR_LOCATION:
+				mapState = .NO_INPUT
+			case .LOCATION_SELECTED:
+				print("DEBUG: Clear map view")
+		}
+	}
+	
+	func imageNameForState(state: MapViewState) -> String {
+		switch state {
+			case .NO_INPUT:
+				return "line.3.horizontal"
+			case .SEARCHING_FOR_LOCATION, .LOCATION_SELECTED:
+				return "arrow.left"
+		}
+	}
 }
 
 struct ActionButtonView_Previews: PreviewProvider {
     static var previews: some View {
-		ActionButtonView(isBackArrow: .constant(false))
+		ActionButtonView(mapState: .constant(MapViewState.NO_INPUT))
     }
 }
