@@ -37,7 +37,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
 		locationSearch(forLocationSearchCompletion: localSearchCompletion) { response, error in
 			
 			if let error = error {
-				print("Location search failed. Error: \(error.localizedDescription)")
+				print("ERROR: locationSearch error:  \(error.localizedDescription)")
 				return
 			}
 			

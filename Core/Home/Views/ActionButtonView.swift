@@ -31,7 +31,6 @@ struct ActionButtonView: View {
 	func actionForState(state: MapViewState) {
 		switch state {
 			case .NO_INPUT:
-				print("DEBUG: .NO_INPUT")
 				break
 			case .SEARCHING_FOR_LOCATION:
 				mapState = .NO_INPUT
