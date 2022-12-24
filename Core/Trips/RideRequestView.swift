@@ -17,7 +17,7 @@ struct RideRequestView: View {
 				VStack {
 					Circle()
 						.fill(Color(.systemGray3))
-						.frame(width: 6)
+						.frame(width: 6, height: 6)
 					
 					Rectangle()
 						.fill(.gray)
@@ -123,7 +123,7 @@ struct RideRequestView: View {
 					.cornerRadius(10)
 			}
 		}
-		.padding()
+		.padding([.leading, .bottom, .trailing])
 		.background(.white)
     }
 }

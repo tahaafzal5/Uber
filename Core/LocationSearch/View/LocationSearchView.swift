@@ -22,7 +22,7 @@ struct LocationSearchView: View {
 				VStack {
 					Circle()
 						.fill(Color(.systemGray3))
-						.frame(width: 6)
+						.frame(width: 6, height: 6)
 					
 					Rectangle()
 						.fill(.gray)
@@ -58,8 +58,10 @@ struct LocationSearchView: View {
 					ForEach(locationSearchViewModel.results, id: \.self) { result in
 						LocationSearchResultCell(title: result.title, subtitle: result.subtitle)
 							.onTapGesture {
-								locationSearchViewModel.selectLocation(localSearchCompletion: result)
-								mapState = .LOCATION_SELECTED
+								withAnimation(.spring()) {
+									locationSearchViewModel.selectLocation(localSearchCompletion: result)
+									mapState = .LOCATION_SELECTED
+								}
 							}
 					}
 				}
