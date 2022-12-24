@@ -32,10 +32,7 @@ struct ActionButtonView: View {
 		switch state {
 			case .NO_INPUT:
 				break
-			case .SEARCHING_FOR_LOCATION:
-				mapState = .NO_INPUT
-				break
-			case .LOCATION_SELECTED:
+			case .SEARCHING_FOR_LOCATION, .LOCATION_SELECTED:
 				mapState = .NO_INPUT
 				break
 		}
