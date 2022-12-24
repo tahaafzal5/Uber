@@ -32,8 +32,6 @@ struct MapViewRepresentable: UIViewRepresentable {
 	}
 	
 	func updateUIView(_ uiView: UIViewType, context: Context) {
-		print("Map state is \(mapState)")
-		
 		switch mapState {
 			case .NO_INPUT:
 				context.coordinator.resetMapView()
@@ -128,7 +126,7 @@ extension MapViewRepresentable {
 			let directions = MKDirections(request: request)
 			directions.calculate { response, error in
 				if let error = error {
-					print("Failed to get directions with error: \(error.localizedDescription)")
+					print("ERROR: directions.calculate error: \(error.localizedDescription)")
 					
 					return
 				}
@@ -140,7 +138,6 @@ extension MapViewRepresentable {
 		}
 		
 		func resetMapView() {
-			print("resetMapView()")
 			parent.mapView.removeAnnotations(parent.mapView.annotations)
 			parent.mapView.removeOverlays(parent.mapView.overlays)
 			
