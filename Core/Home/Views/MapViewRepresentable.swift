@@ -103,8 +103,6 @@ extension MapViewRepresentable {
 			annotation.coordinate = coordinate
 			parent.mapView.addAnnotation(annotation)
 			parent.mapView.selectAnnotation(annotation, animated: true)
-			
-			parent.mapView.showAnnotations(parent.mapView.annotations, animated: true)
 		}
 		
 		func configurePolylines(withDestinationCoordinate destinationCoordinate: CLLocationCoordinate2D) {
@@ -112,6 +110,9 @@ extension MapViewRepresentable {
 			
 			getDestinationRoute(from: userLocationCoordinate, to: destinationCoordinate) { route in
 				self.parent.mapView.addOverlay(route.polyline)
+	
+				let rect = self.parent.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: .init(top: 100, left: 64, bottom: 500, right: 64))
+				self.parent.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
 			}
 		}
 
