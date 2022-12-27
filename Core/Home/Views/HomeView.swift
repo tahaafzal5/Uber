@@ -38,7 +38,7 @@ struct HomeView: View {
 				}
 			}
 			
-			if mapState == .LOCATION_SELECTED {
+			if mapState == .LOCATION_SELECTED || mapState == .POLYLINE_ADDED {
 				RideRequestView()
 					.transition(.move(edge: .bottom))
 			}
