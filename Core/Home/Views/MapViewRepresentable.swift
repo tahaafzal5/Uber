@@ -44,6 +44,8 @@ struct MapViewRepresentable: UIViewRepresentable {
 					context.coordinator.configurePolylines(withDestinationCoordinate: selectedLocationCoordinates)
 				}
 				break
+			case .POLYLINE_ADDED:
+				break
 		}
 	}
 	
@@ -110,6 +112,7 @@ extension MapViewRepresentable {
 			
 			parent.locationViewModel.getDestinationRoute(from: userLocationCoordinate, to: destinationCoordinate) { route in
 				self.parent.mapView.addOverlay(route.polyline)
+				self.parent.mapState = .POLYLINE_ADDED
 	
 				let rect = self.parent.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: .init(top: 100, left: 64, bottom: 500, right: 64))
 				self.parent.mapView.setRegion(MKCoordinateRegion(rect), animated: true)

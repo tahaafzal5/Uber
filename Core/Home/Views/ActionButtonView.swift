@@ -34,7 +34,7 @@ struct ActionButtonView: View {
 		switch state {
 			case .NO_INPUT:
 				break
-			case .SEARCHING_FOR_LOCATION, .LOCATION_SELECTED:
+			case .SEARCHING_FOR_LOCATION, .LOCATION_SELECTED, .POLYLINE_ADDED:
 				mapState = .NO_INPUT
 				locationSearchViewModel.selectedLocation = nil
 				break
@@ -45,7 +45,7 @@ struct ActionButtonView: View {
 		switch state {
 			case .NO_INPUT:
 				return "line.3.horizontal"
-			case .SEARCHING_FOR_LOCATION, .LOCATION_SELECTED:
+			case .SEARCHING_FOR_LOCATION, .LOCATION_SELECTED, .POLYLINE_ADDED:
 				return "arrow.left"
 		}
 	}
