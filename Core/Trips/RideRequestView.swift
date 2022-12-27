@@ -11,6 +11,8 @@ struct RideRequestView: View {
 	
 	@State private var selectedRideType: RideType = .X
 	
+	@EnvironmentObject var locationSearchViewModel: LocationSearchViewModel
+	
     var body: some View {
 		VStack {
 			Capsule()
@@ -76,7 +78,7 @@ struct RideRequestView: View {
 								Text(rideType.description)
 									.font(.system(size: 16, weight: .semibold))
 								
-								Text("$6.90")
+								Text(locationSearchViewModel.computeRidePrice(forType: rideType).toCurrency())
 									.font(.system(size: 16, weight: .semibold))
 							}
 							.padding(8)

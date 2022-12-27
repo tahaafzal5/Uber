@@ -17,7 +17,7 @@ struct MapViewRepresentable: UIViewRepresentable {
 	@Binding var mapState: MapViewState
 	
 	let mapView = MKMapView()
-	let locationManager = LocationManager()
+	let locationManager = LocationManager.shared
 	
 	// MARK: Functions
 	
