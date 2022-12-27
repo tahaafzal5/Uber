@@ -39,7 +39,7 @@ struct MapViewRepresentable: UIViewRepresentable {
 			case .SEARCHING_FOR_LOCATION:
 				break
 			case .LOCATION_SELECTED:
-				if let selectedLocationCoordinates = locationViewModel.selectedLocationCoordinates {
+				if let selectedLocationCoordinates = locationViewModel.selectedLocation?.cooridate {
 					context.coordinator.addAndSelectAnnotation(withCoordinate: selectedLocationCoordinates)
 					context.coordinator.configurePolylines(withDestinationCoordinate: selectedLocationCoordinates)
 				}

@@ -36,7 +36,7 @@ struct ActionButtonView: View {
 				break
 			case .SEARCHING_FOR_LOCATION, .LOCATION_SELECTED:
 				mapState = .NO_INPUT
-				locationSearchViewModel.selectedLocationCoordinates = nil
+				locationSearchViewModel.selectedLocation = nil
 				break
 		}
 	}
