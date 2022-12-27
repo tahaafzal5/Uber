@@ -13,7 +13,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
 	// MARK: Properties
 	
 	@Published var results = [MKLocalSearchCompletion]()
-	@Published var selectedLocationCoordinates: CLLocationCoordinate2D?
+	@Published var selectedLocation: Location?
 
 	private let searchCompleter = MKLocalSearchCompleter()
 	
@@ -45,7 +45,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
 			
 			guard let item = response?.mapItems.first else { return }
 			let coordinate = item.placemark.coordinate
-			self.selectedLocationCoordinates = coordinate
+			self.selectedLocation = Location(title: localSearchCompletion.title, cooridate: coordinate)
 		}
 	}
 	
@@ -58,7 +58,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
 	}
 	
 	func computeRidePrice(forType rideType: RideType) -> Double {
-		guard let selectedLocationCoordinate = selectedLocationCoordinates else { return 0.0 }
+		guard let selectedLocationCoordinate = selectedLocation?.cooridate else { return 0.0 }
 		guard let userCoordinate = self.userLocation else { return 0.0 }
 		
 		let userLocation = CLLocation(latitude: userCoordinate.latitude, longitude: userCoordinate.longitude)

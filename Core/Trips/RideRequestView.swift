@@ -44,8 +44,10 @@ struct RideRequestView: View {
 					.font(.system(size: 16))
 					
 					HStack {
-						Text("Apple Park")
-							.foregroundColor(.black)
+						if let location = locationSearchViewModel.selectedLocation {
+							Text(location.title)
+								.foregroundColor(.black)
+						}
 						
 						Spacer()
 						
