@@ -108,33 +108,11 @@ extension MapViewRepresentable {
 		func configurePolylines(withDestinationCoordinate destinationCoordinate: CLLocationCoordinate2D) {
 			guard let userLocationCoordinate = self.userLocationCoordinate else { return }
 			
-			getDestinationRoute(from: userLocationCoordinate, to: destinationCoordinate) { route in
+			parent.locationViewModel.getDestinationRoute(from: userLocationCoordinate, to: destinationCoordinate) { route in
 				self.parent.mapView.addOverlay(route.polyline)
 	
 				let rect = self.parent.mapView.mapRectThatFits(route.polyline.boundingMapRect, edgePadding: .init(top: 100, left: 64, bottom: 500, right: 64))
 				self.parent.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
-			}
-		}
-
-		func getDestinationRoute(from userLocation: CLLocationCoordinate2D, to userDestination: CLLocationCoordinate2D, completion: @escaping(MKRoute) -> Void) {
-			let userLocationPlacemark = MKPlacemark(coordinate: userLocation)
-			let userDestinationPlacemark = MKPlacemark(coordinate: userDestination)
-			let request = MKDirections.Request()
-			
-			request.source = MKMapItem(placemark: userLocationPlacemark)
-			request.destination = MKMapItem(placemark: userDestinationPlacemark)
-			
-			let directions = MKDirections(request: request)
-			directions.calculate { response, error in
-				if let error = error {
-					print("ERROR: directions.calculate error: \(error.localizedDescription)")
-					
-					return
-				}
-				
-				guard let route = response?.routes.first else { return }
-				
-				completion(route)
 			}
 		}
 		

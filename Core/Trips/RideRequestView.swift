@@ -39,7 +39,7 @@ struct RideRequestView: View {
 						
 						Spacer()
 						
-						Text("9:41 AM")
+						Text(locationSearchViewModel.pickupTime ?? "")
 					}
 					.font(.system(size: 16))
 					
@@ -51,7 +51,7 @@ struct RideRequestView: View {
 						
 						Spacer()
 						
-						Text("10:09 AM")
+						Text(locationSearchViewModel.dropOffTime ?? "")
 					}
 					.font(.system(size: 16, weight: .semibold))
 				}
